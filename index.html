@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Envelope</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="envelope-container" id="envelope">
+        <div class="envelope">
+            <div class="flap"></div>
+            <div class="body"></div>
+            <div class="sticker" id="sticker">
+                <img src="images.png" alt="Cute Pig">
+            </div>
+        </div>
+        <div class="letter" id="letter">
+            <div class="content">
+                <h2>Advance Happy Valentine's Day! 💖</h2>
+                <p>Can I be your date this coming Sunday? I want to watch a movie with you. Here are my choices:</p>
+                <ul>
+                    <li>🎬 <b>It Ends with Us</b></li>
+                    <li>🌊 <b>Moana 2</b></li>
+                </ul>
+                <p>What do you say?</p>
+
+                <!-- Yes & No buttons -->
+                <div class="buttons">
+                    <button id="yes-btn">Yes 💕</button>
+                    <button id="no-btn">No 😡</button>
+                </div>
+            </div>
+
+            <!-- Small pig logo in bottom right corner -->
+            <div class="small-sticker">
+                <img src="images.png" alt="Cute Pig">
+            </div>
+        </div>
+    </div>
+
+    <!-- Yes response animation -->
+    <div id="yes-animation" class="hidden">
+        <h2>Good choice bebi! 💖</h2>
+        <p>I love you so much! 😘</p>
+    </div>
+
+    <!-- No response animation -->
+    <div id="no-animation" class="hidden">
+        <h2>😡 Angry Mode Activated! 😡</h2>
+        <p>Downloading Virus... 🔥💻</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

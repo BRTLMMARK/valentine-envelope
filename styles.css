@@ -1,0 +1,219 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+      /* Set Anniv.jpg as the background for the envelope */
+    background-image: url('Anniv.jpg');
+    background-size: cover; /* Covers the entire envelope */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat;
+    border-radius: 20px;
+}
+
+.envelope-container {
+    position: relative;
+    width: 900px; /* Adjust envelope size */
+    height: 600px;
+    background: #FAA0A0; /* Keeps a soft pink background */
+    border-radius: 5px;
+}
+
+.envelope {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.flap {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 60%;
+    background: rgba(255, 182, 193, 0.9); /* Soft pink flap */
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transition: transform 0.5s ease-in-out;
+}
+
+.body {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 70%;
+    background: transparent; /* Transparent so Anniv.jpg is visible */
+}
+
+.sticker {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    background: #C06C84;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 2;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.sticker img {
+    width: 130px;
+    height: 130px;
+}
+
+/* Hide the sticker when the envelope opens */
+.open .sticker {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.letter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 105%;
+    height: 100%;
+    background: white;
+    border: 3px solid black;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border-radius: 7px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transform: translate(-50%, -50%);
+    padding: 40px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.letter ul {
+    list-style: none;
+    padding: 0;
+}
+
+.letter ul li {
+    font-size: 20px;
+    margin: 5px 0;
+}
+
+/* Buttons */
+.buttons {
+    margin-top: 20px;
+}
+
+button {
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+#yes-btn {
+    background-color: #FF69B4;
+    color: white;
+}
+
+#yes-btn:hover {
+    background-color: #ff1493;
+}
+
+#no-btn {
+    background-color: #ff3333;
+    color: white;
+}
+
+#no-btn:hover {
+    background-color: #cc0000;
+}
+
+/* Small Pig Logo */
+.small-sticker {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+.small-sticker img {
+    width: 100%;
+    height: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Yes Animation */
+#yes-animation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    color: #FF1493;
+    text-align: center;
+    display: none;
+    animation: pop-in 0.5s ease-in-out;
+}
+
+@keyframes pop-in {
+    0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+/* No Animation */
+#no-animation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 26px;
+    color: red;
+    text-align: center;
+    display: none;
+    animation: shake 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes shake {
+    0% { transform: translate(-50%, -50%) rotate(2deg); }
+    100% { transform: translate(-50%, -50%) rotate(-2deg); }
+}
+
+/* Ensure animation shows properly */
+.show {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+
+.letter .content {
+    text-align: center;
+}
+
+.open .flap {
+    transform: rotateX(-180deg);
+}
+
+.open .letter {
+    display: flex;
+}
